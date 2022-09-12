@@ -10,6 +10,8 @@
 
 - discussion of jupyter book idea for sythesizing what we learn and disseminating it
   - a few unfinished chapters of a jupyter book are here: https://ldeo-glaciology.github.io/glaciology-intro-book/book-intro.html  
+  - this will require understanding git. Here's a tutorial. https://fperez.github.io/demo-jupyter-git/intro-git/Git-Tutorial.html 
+
 
 - if we have time, some mathemtical background 
    - vector calculus
