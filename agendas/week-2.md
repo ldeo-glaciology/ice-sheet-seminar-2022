@@ -1,4 +1,4 @@
-# Adgenda, week 2
+# Agenda, week 2
 
 (first week meeting, due to a one-week delay in starting)
 
