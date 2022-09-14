@@ -75,11 +75,13 @@ where $L$ is the width of the glacier, which we assume is unit length.
 This equation can be understood by thinking about the volume of the box that is swept out by a rectangle aligned perpendicular to the flow direction and covering the whole cross-sectional of the glacier/ice stream, as it moves with the ice at a speed $u$. After unit time (a year say) the length of the box is $u$ in the along flow direction and so the volume of the box is $u H L$. 
 
 Now we need to know how $u$ is related to geometry. We haven't derived this yet, but for now let's just recognize that the speed is going to increase with the negative of the ice surface slope. In reality, it is a relatively complex function of the slope, the thickness, gravity, ice density and ice rheology, but for now let's just say 
+
 $$
 u \propto -H'.
 $$ 
 
 Therefore 
+
 $$
 q \propto -H' H
 $$
