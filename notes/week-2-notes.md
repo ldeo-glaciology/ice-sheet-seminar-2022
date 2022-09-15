@@ -110,6 +110,11 @@ Side note: in general, in a 3D ice sheet $q$ is a vector quantity in this scenar
 
 So the bold statement above can be generalized to **In a steady state the horizontal flux divergence balances the accumulation rate**
 
+
+## PLaying with the toy model numerically
+I wrote some code in a jupyter notebook which solves our toy ice model numerically to understand how the curvature happens. If you start with an liner $H$, $\dot{H} is initially uniform. It is the boundary conditions that break that uniformity and allow a curved surface to form. 
+
+
 ## Next week
 We should probably go through the fundamental findings from today again.
 
