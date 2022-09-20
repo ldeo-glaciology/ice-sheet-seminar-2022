@@ -14,7 +14,7 @@ $$
 q = -H' H
 $$
 
-lead to concave surface profile. 
+lead to a concave surface profile. 
 
 - go through notebook: https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/main/code/toy_model_w2.ipynb
 
