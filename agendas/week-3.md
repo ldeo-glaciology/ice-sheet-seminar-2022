@@ -3,6 +3,7 @@
 - summary and further discussion of what we were discussing at the end of last class:
 
 How
+
 $$
 \frac{\partial H}{\partial t} = a - \frac{\partial q}{\partial x},
 $$
