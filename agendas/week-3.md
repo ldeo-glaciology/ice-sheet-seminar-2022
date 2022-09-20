@@ -15,7 +15,7 @@ $$
 
 lead to concave surface profile. 
 
-
+- go through notebook: https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/main/code/toy_model_w2.ipynb
 
 - discussion of jupyter book idea for synthesizing what we learn and disseminating it
   - a few unfinished chapters of a jupyter book are here: https://ldeo-glaciology.github.io/glaciology-intro-book/book-intro.html  
