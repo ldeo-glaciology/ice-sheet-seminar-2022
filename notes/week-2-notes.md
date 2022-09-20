@@ -108,11 +108,11 @@ For example, consider a scenario when the ice-surface is such that the flux does
 
 Side note: in general, in a 3D ice sheet $q$ is a vector quantity in this scenario and has components $q_x$ and $q_y$ and it is not just the gradient of $q$ in one direction that we are interested in, but the sum of the gradients in both horizontal directions. This is usually represented using the del operator $\nabla = \frac{\partial}{\partial x} \vec{i} + \frac{\partial}{\partial y} \vec{j} $. To get the sum of the gradients of $q$ in each direction we use $\nabla \cdot q =  \frac{\partial q_x}{\partial x}  + \frac{\partial q_y}{\partial y} .$
 
-So the bold statement above can be generalized to **In a steady state the horizontal flux divergence balances the accumulation rate**
+So the bold statement above can be generalized to **In a steady state the horizontal flux divergence balances the accumulation rate.**
 
 
 ## PLaying with the toy model numerically
-I wrote some code in a jupyter notebook which solves our toy ice model numerically to understand how the curvature happens. If you start with an liner $H$, $\dot{H} is initially uniform. It is the boundary conditions that break that uniformity and allow a curved surface to form. 
+I wrote some code in a jupyter notebook which solves our toy ice model numerically to understand how the curvature happens. If you start with an liner $H$, $\dot{H} is initially uniform. It is the boundary conditions that break that uniformity and allow a curved surface to form. This notebook can be found [here](https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/main/code/toy_model_w2.ipynb).
 
 
 ## Next week
