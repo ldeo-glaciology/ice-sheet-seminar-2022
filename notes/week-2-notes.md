@@ -58,6 +58,7 @@ We wrote down an equation based on a depth-integrated mass balance:
 $$
 \frac{\partial H}{\partial t} = a - \frac{\partial q}{\partial x},
 $$
+
 where $H$ is the ice thickness, $t$ is time, $a$ is the accumulation rate in units of distance per time, $q$ is the depth-integrated ice flux in units of volume (or area if our model ice sheet is 2D) of ice moving past a location per time, and $x$ is distance along flow. 
 
 We should derive and analyze this equation in a later class, but for now we will take it as given.
@@ -102,7 +103,7 @@ The explanations above include statements about how the ice sheet surface *has t
 
 In each case above where we use this language we mean that if this wasnt the case then the state of the system would evolve until it was the case. Note that we were considering steady states and therefore we were, in effect, saying 'in a steady state, the slope *has to* be this or that'. What we mean is that if the wasn't the case we wouldnt be in a steady state and the time derivative in the top equation would be non-zero and move the system towards a steady state where it is true. 
 
-For example, consider a scenario when the ice-surface is such that the flux does not increase towards the edge ($q'=0$, for example) in the accumulation zone ($a>0$). The top equation shows that $\dot{H} > 0 and so the ice surface would increase in this region, increasing the surface slope and increasing $q$ until $q'=a$ and a steady state is reached. 
+For example, consider a scenario when the ice-surface is such that the flux does not increase towards the edge ($q'=0$, for example) in the accumulation zone ($a>0$). The top equation shows that $\dot{H} > 0$ and so the ice surface would increase in this region, increasing the surface slope and increasing $q$ until $q'=a$ and a steady state is reached. 
 
 **The ice sheet 'relaxes' towards a state in which the gradient in flux balances the accumulation.** 
 
@@ -111,7 +112,7 @@ Side note: in general, in a 3D ice sheet $q$ is a vector quantity in this scenar
 So the bold statement above can be generalized to **In a steady state the horizontal flux divergence balances the accumulation rate.**
 
 
-## PLaying with the toy model numerically
+## Playing with the toy model numerically
 I wrote some code in a jupyter notebook which solves our toy ice model numerically to understand how the curvature happens. If you start with an liner $H$, $\dot{H} is initially uniform. It is the boundary conditions that break that uniformity and allow a curved surface to form. This notebook can be found [here](https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/main/code/toy_model_w2.ipynb).
 
 
