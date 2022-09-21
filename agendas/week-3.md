@@ -44,5 +44,6 @@ lead to a concave surface profile.
 
 - sometime in this week's session let's talk about some vector calculus, e.g.
    - $\nabla = \frac{\partial}{\partial x} \vec{i} + \frac{\partial}{\partial y} \vec{j} $
-   - and what happens when this operates on a scalar field, or is 'dot producted' with a vector field. 
+   - and what happens when this operates on a scalar field, or is 'dot producted' with a vector field.
+- ... and tensor notation 
    
