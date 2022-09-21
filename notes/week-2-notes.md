@@ -113,7 +113,7 @@ So the bold statement above can be generalized to **In a steady state the horizo
 
 
 ## Playing with the toy model numerically
-I wrote some code in a jupyter notebook which solves our toy ice model numerically to understand how the curvature happens. If you start with an liner $H$, $\dot{H} is initially uniform. It is the boundary conditions that break that uniformity and allow a curved surface to form. This notebook can be found [here](https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/main/code/toy_model_w2.ipynb).
+I wrote some code in a jupyter notebook which solves our toy ice model numerically to understand how the curvature happens. If you start with an liner $H$, $\dot{H}$ is initially uniform. It is the boundary conditions that break that uniformity and allow a curved surface to form. This notebook can be found [here](https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/main/code/toy_model_w2.ipynb).
 
 
 ## Next week
