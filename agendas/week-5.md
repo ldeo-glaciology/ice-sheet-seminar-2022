@@ -4,6 +4,9 @@ With the WAIS meeting on last week we missed another week, so this ics actually 
 
 We will pick up where we left off, with some modifications to the original plan:
 
+## note what we mean when we talk about 'instantaneous' deformation in the context of elastic deformation
+- its not really instantaneous and all the talk of seismic/sound waves propagating through materials being evidence of them deforming elastically was confusing, because it makes it sound like sounds wave should have infinite speed. 
+- what our discussion neglected was the acceleration terms in the equations. 
 
 ## relationship between strain rate and velocity fields
 
