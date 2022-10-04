@@ -1,0 +1,253 @@
+### Why are ice sheets higher in the middle than at the edges?
+
+We will start with an example: 
+The Korff ice rise is an example of the cavity of ice shelves. Radar measurements (pulsing radially outward) show the ice rise has a steeper slope in the center (i.e. it's higher in thee center than the sides).
+Radar measurements were used to get a "map" of the Korff ice rise's internal structure useing beat frequency (whose value is the absolute value of the difference in two wave frequencies).
+This observation for ice sheet concavity was the motivation for the following ice thickness model, under steady state conditions (and using conservation of mass):
+
+$$
+\frac{\partial H}{\partial t} = a - \frac{\partial q}{\partial x},
+$$
+
+; where H is ice thickness, a is ice accumulation, and q is ice flux in space
+with 
+$$
+q = -H \frac{\partial H}{\partial x} and \frac{\partial H}{\partial x} < 0
+
+Note: 
+this is an ill-posed problem on its own. So, the following boundary conditions (under steady state) are imposed for out time derivative to be well-posed:
+
+$$
+q(0,t) = 0 = H^{'}(0,t)
+H(1,t) = H_end
+H(x,0) = 1+ (-C)x 
+$$
+with C representing some Real valued constant
+
+
+### How can we solve this?
+We can solve our equation based on a depth-integrated mass balance numerically, using finiite difference methods (See Python code from week 2?).
+When plotting $$\frac{\partial q}{\partial x}$$ we see that the spatial flux is initually uniform. We can write q (using $$q= -H \frac{\partial H}{\partialx}$$ and Product Rule):
+
+$$
+q = -H \frac{\partial H}{\partial x} = \frac{\partial HH}{\partial x} = - \frac{1}{2}[H \frac{\partial H}{\partial x} + H \frac{\partial H}{\partial x}]
+\Rightarrow q = - \frac{1}{2} \frac{\partial H^2}{\partial x}
+$$
+Let $$H(x,0) = 1- Cx$$
+$$
+\Rightarrow [H(x,0)]^{2} = 1-2xC+(C^{2})(x^{2}) 
+\Rightarrow \frac{\partial^2}{\partial x^{2}} [H(x,0)]^{2} = 2C^{2}
+$$
+Given $$q = -\frac{1}{2} \frac{\partial H^{2}}{\partial x}$$ then 
+$$
+\frac{\partial q}{\partial x} = -\frac{1}{2} \frac{\partial^{2} H^{2}}{\partial x^{2}}
+\Rightarrow \frac{\partial q(x,0)}{\partial x} = -\frac{1}{2} \frac{\partial^{2} H(x,0)^{2}}{\partial x^{2}} = -\frac{1}{2} (2C^{2}) = -C^{2}
+$$
+(the method of finite difference can be illustrated graphically. See here for a jupyter book explaining FDM: https://pythonnumericalmethods.berkeley.edu/notebooks/chapter23.03-Finite-Difference-Method.html )
+
+### Models can be simple or complex
+An example of a simple model is that of a body falling (of mass m) in space, which has no other body force acting on it. According to Newtons second law, we can write
+$$
+\[ \sum_{i=0}^{\infty} F_i} = ma \]
+\Rightarrow mg = ma
+\Rightarrow g = a
+$$
+This model illustrates that massive modies require greater force acting on them.
+This is a simple model. 
+
+### Ice flow (Rheological Properties)
+To develop a more nuanced model of ice flowing (for example) we need to consider the rheological properties of ice.
+Def.
+Rheology = the study of the deformation and flow of a material (Hewitt pp. 2016; "Rheology". See: https://people.maths.ox.ac.uk/hewitt/slides/hewitt_karthaus_rheology.pdf ) 
+Types of deformation include elasti, plastic, inelastic, brittle, etc.
+We will define each of these terms as Maxwell did (see "The Viscosity of Ice" by Deeley, 1908):
+\begin{itemize}
+  \item a viscous body = is considered one which undergoes permanent and continuous change in form under action of a given stress, however small (ex. water is a material with low viscosity)
+  \item a plastic body = is one which requires a definite and often increasing stress to produce a continous change in form; where such a material (under very small stress, and yields, at rates proportiional to such stress) may be regarded as viscous, under this deffinition
+  \item an elastic body = is one which returns to its oriiginal shape, after some applied stress, with no viscosity feature (if purley elastic) and which does not dissipate (heat) energy
+  \item a visco-elastic body = is one that exhibits BOTH viscous and elastic charactersitics under some applied stress, with a viscosiity factor s.t. it has a time dependent strain rate (ex. solid water (ice) is viscoelastic)
+  \item a brittle material = is one that experiences very little or NO recoverable deformation prior to fracture, and breaks when a great enough load is applied (ex. glass); i.e. it fractures with little to no elastic deformation when subjected to high enough stress (but how much stress depends on the material and its thickness)
+\end{itemize}
+Therefore, a constitutive (or flow) law is often used to explaini a materials rheological properties (in our case, for ice). Such a flow law relates stress ($\tau$) to strain rate ($\dot{\epsilon}$).
+\begin{itemize}
+  \item stress ($\tau$) = is the force per unit area applied to a body
+  \item strain rate (\dot{\epsilon}) = is the normalized stretching rate
+\end{itemize}
+The relationship between stress and strain can be represented through:
+(1) uniaxial compression (e.g. a sincle force F is applied vertically to a block of given area A, the block is quished under the applied load over time) with $\tau = \frac{F}{A} and \dot{\epsilon} = \frac{1}{L}\frac{dL}{dt}
+(2) simple shear (e.g. a forcee is applied horizontally on a block, it slides at rate v(t) and changes its length L) with $\tau = \frac{F}{A} and \dot{\epsilon} = \frac{v(t)}{L}
+
+Note:
+strain = the deformation of a material from an applied stress s.t. 
+$$
+\epsilon = \frac{1}{H_0}\frac{dH}{dt}
+$$
+where $H_0$ is the non-deformed "real" material length under no applied stress, and $\frac{dH}{dt}$ is the change in material height in time
+
+Many materials exhibit a proportionality relationshiip between stress and strain up to a certain point. The relationshiip between stress and strain is known as Hook's Law. The slope of stress vs. strain is the modulus of elasticity of the material (Young's modulus), E, s.t.
+$$
+E = \frac{\tau}{\epsilon}
+$$
+ex. $E~ 10 GPa$ for ice. 
+See page 10-3 here for a graph of this relationship: https://www.usna.edu/NAOE/_files/documents/Courses/EN380/Course_Notes/Ch10_Deformation.pdf
+
+### Types of Deformation (as defined by stress vs. strain slopes)
+\begin{itemize}
+  \item "strain hardening" = the region in plastic deformation, which goes from the "yield strength" to the "ultimate strength"
+  \item "elastic flow (deformation)" = the region from initial stress vs strain to the materials "yield strength"
+  \item "plastic flow (deformation)" = the region from the materials "yield strength" to its "point of fracture"
+\end{itemize}
+
+Note:
+Stress and strain relations are the same for the giveen material, regardless of if the material is undergoing tension or compression, as long as the applies stress is BELOW the proportional limit
+
+### Maxwell  model for visco-elastic to plastic flow
+We will consider a purley viscous Newtonian material D and a purley elastic spring S s.t. they are connected in series (see picture here: https://commons.wikimedia.org/wiki/File:Maxwell_diagram.svg#/media/File:Maxwell_diagram.svg )
+Under an applied stress, the  total stress ($\tau_tot$) and total strain ($\epsilon_tot$) of the system can be defined, using Hooke's law for uni-axial OR shear stress (see above point), as follows:
+
+$$
+\tau_tot = \tau_D = \tau_s
+\epsilon_tot = \epsilon_D + \epsilon_S
+$$
+taking the derivative of total strain with respect to time, we obtain:
+$$
+\dot{\epsilon} = \frac{d \epsilon_tot}{dt} = \dot{\epsilon_D} + \dot{\epsilon_S} = \frac{\tau}{\eta} + \frac{1}{E} \frac{d \tau}{dt}
+$$
+where $\eta$ is the material coefficient of viscosity.
+
+Note: a Newtonian fluid is one in which stress is linearly related to strain rate under deformation, in short.
+If a Maxwell material is subjected to a constrain strain rate then the stress increases until it reaches some constant value defined by:
+$$
+\tau = \eta \epsilon
+$$
+More generally, this can be written as:
+$$
+\tau(t) = \eta \dot{\epsilon} (1 - e^{\frac{-Et}{t \eta})
+$$
+Where the time it takes the visco elastic material to become plastic is known, in glaciology, as "Maxwell's time" when creep deformation occurs when a stress is applied for a sufficiently long time.
+
+### Glen's flow law (and the viscoelastic properties of ice)
+In ice (and other viscoelastic materials, like olivine, the human spine, or wood), different mechanisms dominate the characteristics of deformation at different applied stresses, temperatures, grain (in ice, for example) sizes, etc.
+This can be seen, again, graphically (see here, Fig, 5, https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2000JB900336 for the famous Goldsby & Kohldstedt , 2001, paper describing different values of n, talked about in turn). 
+More specifically, this relationship, defined as Glen's flow law:
+$$
+\dot{\epsilon} = A \tau^{n}
+\dot{\epsilon_ij} = SA \tau^{n-1} \tau_ij
+$$
+Where n is some positive integer, S is an enhancement factor (described on observationis and varies with temperature, grain size, imipurities, etc.) and A is defined by the Arrhenius law (reasonably described for ice):
+$$
+A = A_0 e^{\frac{-Q}{RT}}
+$$
+where R is the gas constant, Q is the activation energy, and T is the temperature.
+
+### Useful Notation
+We will quickly go over tensor notation for the sake of specificity of modeling stress and strain (which can be represented as tensors). See here for a more detailied description: https://mathworld.wolfram.com/Tensor.html
+Let an n rank tensor be an object with n indecies and $m^n$ components in m dimensional space. The tensor obeys certain transformation rules but the dimension is largely irrelevant. 
+\begin{itemize}
+  \item A 0-rank tensor: is a scalar
+  \item a 1st-rank tensor: is a vector
+  \item a 2nd-rank tensor: is a matrix
+\end{itemize}
+
+We will look at 2nd-rank tensors (for example). Let a 2nd rank tensor in 3-dimensionial space of Real valued numbers be represented by A. 
+Then A has 3 Principle Invariants:
+\begin{itemize}
+  \item $I_1 = tr(A) = a_11 + a_22 + a_33$
+  \item $I_2 = \fran{1}{2}[tr(A)^{2} - tr(A^{2})]$
+  \item $I_3 = det(A)$
+\end{itemize}
+and 3 main invariants:
+\begin{itemize}
+  \item $J_1 = I_1$
+  \item $J_2 = I_1^{2} -2I_2$
+  \item $J_3 = I_1^{3} - 3I_1 I_2 + 3I_3$
+\end{itemize}
+
+As an aside: we can exploit properties these invariants to get interesting results. As an example, see the Cayley-Hamilton theorem:
+$$
+A^{3} - I_1 A^{2} + I_2 A - I_3 I = 0
+$$
+where I is the identity tensor
+
+### Ice Stress and Strain (in tensor notation)
+We can represnet stress and strain as tensors in terms of the strain rate tensor and the deviatoric stress tensor. Let i,j be an element of positive integers. Using Darcy's Law for a Newtonian fluid (ice is a Newtonian fluid) we have:
+$$
+\tau_ij = 2 \eta \dot{\epsilon_ij}
+\dot{\epsilon_ij} = \frac{1}{2} (\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}
+$$
+Let $c_ijkl$ be an effective viscosity tensor that may depend on invariants of $\tau_ij$, temperature, grain size, fabric (c-axis orientation), and/or impurities. Then, we can write
+$$
+\tau_ij = c_ijkl \dot{\epsilon_kl}
+$$
+Note: ce is assumed *isotropic* such that stress and strain rate are aligned. In orther words
+$$
+\dot{\epsilon_ij} = \lambda \tau_ij
+$$
+
+Glen's flow law is a power law and is most commonly used ot describe the flow of ice in glaciers (*very generally*) and ice sheets. Without loss of generality, this can be written as
+$$
+\dot{\epsilon} = A \tau^{n}
+$$
+with n being an element of positive integers and $A ~ 2.4x10^{-24} Pa^{-3}s^{-1} at 0 degrees C$. Usually, n is set to 3, but this is not always the case (more in the next section).
+In tensor form,
+$$
+\dot{\epsilon_ij} = A \tau^{n-1} \tau_ij 
+\tau_ij = 2 \eta \dot{\epsilon}
+$$
+
+The *exact* values of A may also depend on temperature, grain size, stress regimes, impurities, etc. With $\eta$ being used to represnet the effective viscosity s.t.
+$$
+\eta = \frac{1}{2 A \tau^{n-1}}
+$$
+
+
+Note: a single crystal deforms easily if shear stress is applied along its basal plane. Deofrmation is, therefore, achieved through dislocations in the crystal lattice along basal planes (termed basal glide) and across basal planes (termed basal climb).
+In ice, the basal plane is a result of haxagonal stacking of ice grains. See here for an illustration: https://johncarlosbaez.wordpress.com/2012/04/15/ice/
+
+Generally, a single crystal of ice is made up of stacked rings (formed by tetrahedral H20 stacks) s.t. their plane *is the basal plane* and the normal to the basal plane is the c-axis. The orientation of c-axis for a set of grains (i.e. where the normal to the plane is oriented with respect to the c-axis) is usually referred to as the "fabric".
+The c-axis orientation plays an important role in sliding behavior, ability to withstand compressive stress, and general properties of flow. When a compressive stress is applied ot individual crystals, their c-axes rotate *toward* the compressive axis.
+
+
+
+### Values of the n-exponent to describe ice flow
+Most of ice deformation (ice is a polycrystaline material!!!) occurs via basal glide, but this is usually not a rate limiting process due to different c-axis orientations (using language from Hewitt, 2016; "Rheology").
+Rate limiting processes are responsible for controlling macroscopic strain rate (described using Glen's flow law) and all depend on the magnitude of stress, temperature, and grain size of the material. 
+Recall,
+$$
+\dot{\epsilon} = A \tau^{n}
+$$
+In tensor form,
+$$
+\dot{\epsilon_ij} = A \tau^{n-1} \tau_ij
+\tau_ij = 2 \eta \dot{\epsilon_ij}
+\eta = \frac{1}{2 A \tau^{n-1}}
+$$
+where n is an element of positive integers (usually between 2-4, this is important!). 
+
+Under constant stress, we can see the evolution of strain and strain rate in log-log space (from experiments by Budd & Jacka, 1989). See here: https://www.sciencedirect.com/science/article/pii/0165232X89900141
+
+\begin{itemize}
+\item in the primary creep to secondary creep regime: we have material stiffining due to redistribution of stress between grains
+\item in the secondary creep to tertiary creep regime: we have material softeninig due to recrystalization and rotation of crystals
+\item in the tertiary creep regime onward: we have reached steady state orientation of grains
+\end{itemize}
+
+With different values of n-exponents we can define different stress regimes (generally):
+\begin{itemize}
+\item n = 3-4 : is the dislocation creep regime (diff), when climb (i.e. deformation through, and dislocaiton across the basal plane) enables *non-basal-plane* motion, this is mostly favored at high stress, and is independent of grain size
+\item n = 1.8 - 2.4: is the grain boundary sliding regime (GBS), mostly favored at low stresses, and very sensitive to (possibly dependent on) grain size
+\item n = 1: is the diffusion creep regime (disl), mostly favored at low stress, when molecules diffuse through crystals or along grain boundaries, and very sensitive to (possibly dependent on) grain size
+\end{itemize}
+
+"Normal" grain growth occurs in the absence of deformation, when grain boundaries are energetically unfavorable, and deviatoric stress causes individual c-axes to rotate towards the compression axis. "Dynamic recrystalization" occurs during deformation and includes the subdivision of grains resulting from alignment of dislocations (called *polygonisation*), and when there is no initial strain energy and c-axis are at approximately 45 degress to the compression axis. 
+Under constant stress, a steady state between grain growth, c-axis rotation, and recrystalization is possible. BUT in general, grain size, fabric (c-axis orientation), and strain rate co-evolve. 
+A favored c-axis orientation results in an *anisotropic* response of strain rate and deviatoric stress. 
+When combining the effects of dislocaiton creep (disl), grain boundary sliding (GBS), diffusion creep (diff), and basal glide (basal) this suggests the following law:
+
+$$
+\dot{\epsilon} = \dot{\epsilon_diff} + \dot{\disl} + \frac{\dot{\epsilon_gbs} \dot{\epsilon_basal}}{\dot{\epsilon_gbs} + \dot{\epsilon_basal}}
+$$
+More simply,
+$$
+\dot{\epsilon_ij} = A_ij \tau^{n_ij}
+$$
