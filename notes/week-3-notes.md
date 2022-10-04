@@ -1,31 +1,27 @@
-### Why are ice sheets higher in the middle than at the edges?
+# Notes from week 2
+
+## Why are ice sheets steeper at the edges than in the middle?
+Following on from the discussion last week, let's revisit the question of why ice sheets are stepper at the side than in the middle.
 
 We will start with an example: 
-The Korff ice rise is an example of the cavity of ice shelves. Radar measurements (pulsing radially outward) show the ice rise has a steeper slope in the center (i.e. it's higher in the center than the sides).
-Radar measurements were used to get a "map" of the Korff ice rise's internal structure using beat frequency (see here for an explanation of beat frequency: https://www.phys.uconn.edu/~gibson/Notes/Section5_5/Sec5_5.htm ).
+In the slides we saw a radargram from Korff Ice Rise. It shows the classic ice sheet shape: higher in the middle than at the sides and steeper at the sides than in the middle. 
+Radar measurements were used to get a "map" of the Korff ice rise's internal structure.
 This observation for ice sheet concavity was the motivation for the following ice thickness model, under steady state conditions (and using conservation of mass):
 
 $$
 \frac{\partial H}{\partial t} = a - \frac{\partial q}{\partial x},
 $$
 
-where H is ice thickness, a is ice accumulation, and q is ice flux in space
-with 
+where $H$ is ice thickness, $a$ is ice accumulation, and $q$ is ice flux. For simplicity we usd a toy model for $q$: 
 
 $$
-q = -H \frac{\partial H}{\partial x} 
-$$
-
-and 
-
-$$
-\frac{\partial H}{\partial x} < 0
+q = -H \frac{\partial H}{\partial x}.
 $$
 
 
 Note: 
 this is an ill-posed problem on its own. 
-So, the following boundary conditions (under steady state conditions) are imposed for out time derivative to be well-posed:
+So, the following boundary conditions are imposed for out problem to be well-posed:
 
 $$
 q(0,t) = 0 = H^{'}(0,t)
@@ -39,23 +35,23 @@ $$
 H(x,0) = 1+ (-C)x 
 $$
 
-with C representing some Real valued constant
+with $C$ representing some Real valued constant
 
 
 ### How can we solve this?
 
-We can solve our equation based on a depth-integrated mass balance numerically, using finite difference methods (See Python code from week 2).
-When plotting $\frac{\partial q}{\partial x}$ we see that the spatial flux is initially uniform. We can write q (using $q= -H \frac{\partial H}{\partial x}$ and Product Rule):
+We can solve our model based on a depth-integrated mass balance numerically, using finite difference methods (See Python code from week 2).
+When plotting $\frac{\partial q}{\partial x}$ we see that the spatial flux is initially uniform. We can write $q$ (using $q= -H \frac{\partial H}{\partial x}$ and the product rule):
 
 $$
-q = -H \frac{\partial H}{\partial x} = \frac{\partial HH}{\partial x} = - \frac{1}{2}[H \frac{\partial H}{\partial x} + H \frac{\partial H}{\partial x}]
+q = -H \frac{\partial H}{\partial x}  = - \frac{1}{2}[H \frac{\partial H}{\partial x} + H \frac{\partial H}{\partial x}]
 \Rightarrow q = - \frac{1}{2} \frac{\partial H^2}{\partial x}
 $$
 
 Let $H(x,0) = 1- Cx$
 
 $$
-\Rightarrow [H(x,0)]^{2} = 1-2xC+(C^{2})(x^{2}) 
+\Rightarrow [H(x,0)]^{2} = 1-2xC+C^{2}x^{2} 
 \Rightarrow \frac{\partial^2}{\partial x^{2}} [H(x,0)]^{2} = 2C^{2}
 $$
 
@@ -66,9 +62,9 @@ $$
 \Rightarrow \frac{\partial q(x,0)}{\partial x} = -\frac{1}{2} \frac{\partial^{2} H(x,0)^{2}}{\partial x^{2}} = -\frac{1}{2} (2C^{2}) = -C^{2}
 $$
 
-(the method of finite difference can be illustrated graphically. See here for a jupyter book explaining FDM: https://pythonnumericalmethods.berkeley.edu/notebooks/chapter23.03-Finite-Difference-Method.html )
+(the method of finite difference can be illustrated graphically. See here for a jupyter book explaining the finite difference method: https://pythonnumericalmethods.berkeley.edu/notebooks/chapter23.03-Finite-Difference-Method.html).
 
-### Models can be simple or complex
+## Models can be simple or complex
 
 An example of a simple model is that of a body falling (of mass m) in space, which has no other body force acting on it. According to Newtons second law, we can write
 
@@ -80,9 +76,9 @@ $$
 
 
 This model illustrates that massive bodies require greater force acting on them.
-This is a simple model. 
+This is a *very* simple model, but it demonstrates something fundamental about mathematical modelling: the process of getting to the final answer matters. THe asnwer $g=a$ expressing the importantresult --- that all objects accelerate at the same rateunder the same gravity field --- but the fact tha $m$ cancelled in the penultimate step provides the explanation why --- more massive objects take more force to accelerate at a given rate, but they also experience more force for a given gravity field and the two effects exactly cancel. 
 
-### Ice flow (Rheological Properties)
+## Ice flow (Rheological Properties)
 
 To develop a more nuanced model of ice flowing (for example) we need to consider the rheological properties of ice.
 
@@ -100,18 +96,25 @@ We will define each of these terms as Maxwell did (see "The Viscosity of Ice" by
 
 
 Therefore, a constitutive (or flow) law is often used to explain a materials rheological properties (in our case, for ice). 
-Such a flow law relates stress ( $\tau$ ) to strain rate ( $\dot{\epsilon}$ ).
+Such a flow law relates stress ( $\tau$ ) to strain ($\epsilon$) or strain rate ($\dot{\epsilon}$).
 
 - stress ( $\tau$ ) = is the force per unit area applied to a body
-- strain rate ( $\dot{\epsilon}$ ) = is the normalized stretching rate
+- strain ($\epsilon$) = the normalize extension of the body
+- strain rate ($\dot{\epsilon}$) = is the normalized stretching rate
 
 
 The relationship between stress and strain can be represented through:
-(1) uniaxial compression (e.g. a single force F is applied vertically to a block of given area A, the block is squished under the applied load over time) with $\tau = \frac{F}{A}$ and $\dot{\epsilon} = \frac{1}{L}\frac{dL}{dt}$
-(2) simple shear (e.g. a force is applied horizontally on a block, it slides at rate v(t) and changes its length L) with $\tau = \frac{F}{A}$ and $\dot{\epsilon} = \frac{v(t)}{L}$
+
+(1) uniaxial compression: a force $F$ is applied vertically to a block of area $A$ and length $L$ and the block is squished under the applied load. 
+This type of stress is called normal stress. 
+In this case it has a value $\tau = \frac{F}{A}$. The strain rate is defined as $\dot{\epsilon} = \frac{1}{L}\frac{dL}{dt}$. 
+
+(2) simple shear: a force is applied horizontally on a block and across its upper surface and the its lower surface is held stationary. 
+The block deforms and the upper surface moves relative to the bottom surface at a rate v(t) and it bottom surface stays stationary. 
+This stress is a shear stress and is value is $\tau = \frac{F}{A}$ and $\dot{\epsilon} = \frac{v(t)}{L}$
 
 Note:
-strain = the deformation of a material from an applied stress s.t. 
+strain = the deformation of a material from an applied stress 
 
 $$
 \epsilon = \frac{1}{H_0}\frac{dH}{dt}
@@ -119,9 +122,9 @@ $$
 
 where $H_0$ is the non-deformed "real" material length under no applied stress, and $\frac{dH}{dt}$ is the change in material height in time
 
-Many materials exhibit a proportionality relationship between stress and strain up to a certain point. 
+Many materials exhibit elasticity (i.e. a proportional relationship between stress and strain) up to a certain stress. 
 The relationship between stress and strain is known as Hook's Law. 
-The slope of stress vs. strain is the modulus of elasticity of the material (Young's modulus), E, s.t.
+The slope of stress vs. strain is the modulus of elasticity of the material (Young's modulus), E,
 
 $$
 E = \frac{\tau}{\epsilon}
@@ -130,11 +133,11 @@ $$
 ex. E is approximately 10 GPa for ice. 
 See page 10-3 here for a graph of this relationship: https://www.usna.edu/NAOE/_files/documents/Courses/EN380/Course_Notes/Ch10_Deformation.pdf
 
-### Types of Deformation (as defined by stress vs. strain slopes)
+## Types of Deformation (as defined by stress vs. strain slopes)
 
 -  "strain hardening" = the region in plastic deformation, which goes from the "yield strength" to the "ultimate strength"
-- "elastic flow (deformation)" = the region from initial stress vs strain to the materials "yield strength"
-- "plastic flow (deformation)" = the region from the materials "yield strength" to its "point of fracture"
+- "elastic flow (deformation)" = the region from initial stress vs strain to the material's "yield strength"
+- "plastic flow (deformation)" = the region from the material's "yield strength" to its "point of fracture"
 
 
 Note:
@@ -142,8 +145,9 @@ Stress and strain relations are the same for the given material, regardless of i
 
 ### Maxwell  model for viscoelastic to plastic flow
 
-We will consider a purely viscous Newtonian material D and a purely elastic spring S s.t. they are connected in series (see picture here: https://commons.wikimedia.org/wiki/File:Maxwell_diagram.svg#/media/File:Maxwell_diagram.svg )
-Under an applied stress, the  total stress ( $\tau_{tot}$ ) and total strain ( $\epsilon_tot$ ) of the system can be defined, using Hooke's law for uni-axial OR shear stress (see above point), as follows
+We will consider a purely viscous Newtonian material $D$ and a purely elastic spring $S$ they are connected in series. See picture below. ![viscoelastic diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Maxwell_diagram.svg/2880px-Maxwell_diagram.svg.png?20160327183600)
+
+Under an applied stress, the  total stress ($\tau_{tot}$) and total strain ($\epsilon_{tot}$) of the system can be defined, using Hooke's law for uni-axial OR shear stress (see above point), as follows
 
 $$
 \tau_{tot} = \tau_D = \tau_s
@@ -156,7 +160,7 @@ $$
 \dot{\epsilon} = \frac{d \epsilon_{tot}}{dt} = \dot{\epsilon_D} + \dot{\epsilon_S} = \frac{\tau}{\eta} + \frac{1}{E} \frac{d \tau}{dt}
 $$
 
-where $\eta$ is the material coefficient of viscosity.
+where $\eta$ is the material property, viscosity.
 
 Note: a Newtonian fluid is one in which stress is linearly related to strain rate under deformation, in short.
 If a Maxwell material is subjected to a constrain strain rate then the stress increases until it reaches some constant value defined by:
@@ -173,10 +177,10 @@ $$
 
 Where the time it takes the viscoelastic material to become plastic is known, in glaciology, as "Maxwell's time" when creep deformation occurs when a stress is applied for a sufficiently long time.
 
-### Glen's flow law (and the viscoelastic properties of ice)
+## Glen's flow law (and the viscoelastic properties of ice)
 
 In ice (and other viscoelastic materials, like olivine, the human spine, or wood), different mechanisms dominate the characteristics of deformation at different applied stresses, temperatures, grain (in ice, for example) sizes, etc.
-This can be seen, again, graphically (see here, Fig, 5, https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2000JB900336 from the famous Goldsby & Kohldstedt; 2001, paper describing different values of n, talked about in turn). 
+This can be seen, again, graphically !(see here, Fig, 5, https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2000JB900336 from the famous Goldsby & Kohldstedt; 2001, paper describing different values of $n$, talked about in turn). 
 
 More specifically, this relationship, defined as Glen's flow law
 
@@ -185,18 +189,19 @@ $$
 \dot{\epsilon_{ij}} = SA \tau^{n-1} \tau_{ij}
 $$
 
-Where n is some positive integer, S is an enhancement factor (described on observations and varies with temperature, grain size, impurities, etc.) and A is defined by the Arrhenius law (reasonably described for ice):
+Where $n$ is some positive value, $S$ is an enhancement factor (described on observations and varies with temperature, grain size, impurities, etc.) and $A$ is defined by the Arrhenius law (reasonably described for ice):
 
 $$
 A = A_0 e^{\frac{-Q}{RT}}
 $$
 
-where R is the gas constant, Q is the activation energy, and T is the temperature.
+where $R$ is the gas constant, $Q$ is the activation energy, and $T$ is the temperature.
 
-### Useful Notation
+## Tensor Notation
+(we will go over this in a later seminar, but it here for reference)
 
 We will quickly go over tensor notation for the sake of specificity of modeling stress and strain (which can be represented as tensors). See here for a more detailed description: https://mathworld.wolfram.com/Tensor.html
-Let an n rank tensor be an object with n indices and $m^{n}$ components in m dimensional space. The tensor obeys certain transformation rules but the dimension is largely irrelevant. 
+An $n$ rank tensor is an object with $n$ indices and $m^{n}$ components in $m$ dimensional space. The tensor obeys certain transformation rules but the dimension is largely irrelevant. 
 
 - 0-rank tensor: is a scalar
 - 1st-rank tensor: is a vector
@@ -271,6 +276,7 @@ $$
 \eta = \frac{1}{2 A \tau^{n-1}}
 $$
 
+where $\tau$ is the effective stress, defined as the second invariant of the stress tensor, $I_2$.
 
 Note: a single crystal deforms easily if shear stress is applied along its basal plane. 
 Deformation is, therefore, achieved through dislocations in the crystal lattice along basal planes (termed basal glide) and across basal planes (termed basal climb).
