@@ -17,9 +17,10 @@ $$
 This is a chance to introduce tensors and tensor notation.
 
 ## driving stress
-    - $\tau_d = -\rho g H \frac{\partial H}{\partial x}$ 
-    - integrate total force acting on each side of a column
-    - then take the difference between the two   
+
+- $\tau_d = -\rho g H \frac{\partial H}{\partial x}$ 
+- integrate total force acting on each side of a column
+- then take the difference between the two   
 
 Also present this in two dimensions using $\nabla$
 
@@ -27,10 +28,10 @@ I would like to compute this over Antarctica. I made a start on pangeo in gradie
 
 
 ## perfectly plastic model 
-    - $\tau_d = Y = 100$ kPa
+- $\tau_d = Y = 100$ kPa
 
 ## extras
 - sometime in this week's session let's talk about some vector calculus, e.g.
    - $\nabla = \frac{\partial}{\partial x} \vec{i} + \frac{\partial}{\partial y} \vec{j} $
    - and what happens when this operates on a scalar field, or is 'dot producted' with a vector field.
-- ... and tensor notation 
+ 
