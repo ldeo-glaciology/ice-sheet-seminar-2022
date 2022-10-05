@@ -1,4 +1,13 @@
 # Notes from week 2
+## Intro
+Topics we covered were:
+- wrapping up ice-sheet shape discussion
+   - playing with our toy model more
+   - solving it with finite difference   
+- intro to rheology
+
+These notes covers these topics in more detail than we covered them in the discussion. 
+
 
 ## Why are ice sheets steeper at the edges than in the middle?
 Following on from the discussion last week, let's revisit the question of why ice sheets are stepper at the side than in the middle.
