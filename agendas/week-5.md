@@ -31,7 +31,7 @@ I would like to compute this over Antarctica. I made a start on pangeo in gradie
 - $\tau_d = Y = 100$ kPa
 
 ## 5. derive mass balance eqn or SIA from $tau_d$?
-(up to us whichone we do!)
+(up to us whicho ne we do!)
 
 Take the expression for the driving stress and put it in Glen's flow law to get the vertical gradient of horizontal velocity $\frac{\partial u}{\partial z}$. Then integrate vertically to get $u$. Then integrate again to get $q$. 
 
