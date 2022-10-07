@@ -140,7 +140,7 @@ $$
 $$
 
 
-[We will go over tenor notation next week]
+[We will go over tensor notation next week]
 
 ## Computing the slope of the ice sheet surface from data in the cloud. 
 
