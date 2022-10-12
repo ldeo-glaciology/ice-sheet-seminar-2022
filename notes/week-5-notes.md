@@ -111,15 +111,12 @@ Proof if this: Consider a segment of ice within a glacier ice that is $L$ long i
 
 After a time $\Delta t$, the left side of the block has moved from $x=0$ to $x = u\Delta t$. 
 
-The right side of the block moves at a velocity of $u + L\frac{\partial u}{\partial x}$. To understand this, consider that the spatial gradient in $u$ ($\frac{\partial u}{\partial x}$) expresses how much $u$ increases for every meter you shift in the $x$ direction. So to get the difference in the velocity between the left side of the block and the right is simply this gradient times the length of the block $L$. This approach is valid as long as we consider the distance $L$ small enough that $u$ varies linearly. 
+The right side of the block moves at a velocity of $u + L\frac{\partial u}{\partial x}$. To understand this, consider that the spatial gradient in $u$ ( $\frac{\partial u}{\partial x}$ ) expresses how much $u$ increases for every meter you shift in the $x$ direction. So to get the difference in the velocity between the left side of the block and the right is simply this gradient times the length of the block $L$. This approach is valid as long as we consider the distance $L$ small enough that $u$ varies linearly. 
 
 In the $\Delta t$ the right side of the block has moved $\Delta t(u + L\frac{\partial u}{\partial x})$. It started at $x = L$, so its new position is $L + \Delta t(u + L\frac{\partial u}{\partial x})$
 
 
-Now, if the left side is at  $x = u\Delta t$ and the right side of the block is  at $x = L+ \Delta t(u + L\frac{\partial u}{\partial x})$, the new length of the block, after this period of time $\Delta t$ it has spent in this velocity field is 
-$$
-L + \Delta t(u + L\frac{\partial u}{\partial x}) - \Delta t u = L + \Delta t L\frac{\partial u}{\partial x}
-$$
+Now, if the left side is at  $x = u\Delta t$ and the right side of the block is  at $x = L+ \Delta t(u + L\frac{\partial u}{\partial x})$, the new length of the block, after this period of time $\Delta t$ it has spent in this velocity field is $L + \Delta t(u + L\frac{\partial u}{\partial x}) - \Delta t u = L + \Delta t L\frac{\partial u}{\partial x}$.
 
 and the change in length is
 
