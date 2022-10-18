@@ -86,7 +86,7 @@ Note that in this calculation, we have assumed constant $\rho$ and g, and that a
 
 The more relevant quantity to consider here is not just the force acting on one side of the ice column, but rather the difference between the forces on either side. If we imagine that the ice column is part of an ice sheet with a sloping surface of grade $\frac{dH}{dx}$, and has thickness $\partial x$ in the x-direction, then the force acting on the opposite side of the ice column can be calculated as follows:
 
-$F_2 = \frac{\rho g \partial y H_2^2}{2} = \frac{\rho g \partial y H^2}{2} + \partial x \frac{d}{dx}(\frac{\rho g \partial y H^2}{2})$
+$F_2  = \frac{\rho g \delta y H^2}{2} + \delta x \frac{d}{dx}(\frac{\rho g \delta y H^2}{2})$
 
 $\Delta F = F_1 - F_2 = \frac{\rho g \partial y H^2}{2} - (\frac{\rho g \partial y}{2}H^2 + \partial \frac{d}{dx}(\frac{\rho g \partial y H^2}{2}))$
 
