@@ -65,7 +65,7 @@ Recall from last week that each component of the strain rate tensor $\dot \varep
 
 Driving stress drives ice flow.
 
-Imagine a column of ice. The pressure at each depth $z$ can be expressed as $P = \rho g z \partial y$, where:
+Imagine a column of ice. The pressure at each depth $z$ can be expressed as $P = \rho g z$, where:
   - $\rho$ is the density of ice ( $~9.17 kg/m^3$)
   - $g$ is gravitational acceleration ( $~9.8 m/s^2$)
   - $z$ is the depth beneath the surface
