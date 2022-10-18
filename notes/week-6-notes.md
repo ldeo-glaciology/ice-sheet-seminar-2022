@@ -88,7 +88,7 @@ The more relevant quantity to consider here is not just the force acting on one 
 
 $F_2  = \frac{\rho g \delta y H^2}{2} + \delta x \frac{d}{dx}(\frac{\rho g \delta y H^2}{2})$
 
-$\Delta F = F_1 - F_2 = \frac{\rho g \partial y H^2}{2} - (\frac{\rho g \partial y}{2}H^2 + \partial \frac{d}{dx}(\frac{\rho g \partial y H^2}{2}))$
+$\Delta F = F_1 - F_2 = \frac{\rho g \delta y H^2}{2} - (\frac{\rho g \delta y}{2}H^2 + \delta x \frac{d}{dx}(\frac{\rho g \partial y H^2}{2}))$
 
 $\Delta F = -\frac{\partial x \rho g \partial y}{2} \frac{\partial H^2}{\partial x} =$ net force on the column
 
