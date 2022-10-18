@@ -69,7 +69,6 @@ Imagine a column of ice. The pressure at each depth $z$ can be expressed as $P =
   - $\rho$ is the density of ice ( $~9.17 kg/m^3$)
   - $g$ is gravitational acceleration ( $~9.8 m/s^2$)
   - $z$ is the depth beneath the surface
-  - $\partial y$ is the thickness of the ice column
 
 Therefore, the pressure gradient with depth is $\frac{dP}{dz} = \rho g $.
 
