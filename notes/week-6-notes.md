@@ -76,7 +76,7 @@ Therefore, the pressure gradient with depth is $\frac{dP}{dz} = \rho g $.
 
 To calculate the force acting on one side of the ice column (blue arrow), with thickness H, we can consider that $F = P \times A = P(z) \times H \partial y$. Then, we can integrate over the height of the column to get the total force. We will call the force on the left-hand side of the column $F_1$:
 
-$F_1 = \int_0^H P(z) \partial y dz$
+$F_1 = \int_0^H P(z) \delta y dz$
 
 $F_1 = \int_0^H \rho g z \partial y dz$
 
