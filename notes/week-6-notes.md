@@ -71,7 +71,7 @@ Imagine a column of ice. The pressure at each depth $z$ can be expressed as $P =
   - $z$ is the depth beneath the surface
   - $\partial y$ is the thickness of the ice column
 
-Therefore, the pressure gradient with depth is $\frac{dP}{dz} = \rho g \partial y$.
+Therefore, the pressure gradient with depth is $\frac{dP}{dz} = \rho g $.
 
 ![image](https://user-images.githubusercontent.com/90412051/196259608-df6514b0-1267-4b05-8365-447518651a39.png)
 
