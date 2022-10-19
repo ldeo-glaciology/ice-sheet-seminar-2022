@@ -1,12 +1,21 @@
 # Agenda, week 7
 
-## mass balance
 
-### from $\nabla \cdot \underline{u}
+## 1. shear strain
+ ending with the final bit of tensor notation
 
-### from considering a column
+## 2. mass balance
 
-### apply to simple cases
+### 2.1. Simple derivation
+
+
+
+### 2.2. More complicated derivation, from $\nabla \cdot \underline{u}$
+
+
+
+
+### 2.3. Apply to simple cases
 
 #### rigid open-ended pipe in full-pipe
 
@@ -14,14 +23,18 @@
 
 #### closed deformable pipe (toothpaste tube)
 
-#### ice sheet
+#### flat ice sheet 
 
-#### ice shelf
+#### sloping ice sheet with flat bed
 
-## shear strain
+#### wedge ice sheet
+
+#### ice shelf (most general)
 
 
-## SIA
+
+## stress balance equations 
+Probably wont have time for this
 
 
 
