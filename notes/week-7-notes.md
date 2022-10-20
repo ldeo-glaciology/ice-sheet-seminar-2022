@@ -62,7 +62,7 @@ $$
 
 
 ## Mass balance equation
-We derived two different version of the depth integrated mass balance equation. The first derivation was relatively simple and ignored things like basal melting and lateral variation in the thickness $H$. The second was more complete, but relies on some calculus that is no that intuitive (Leibniz's integration rule).
+
 
 ### Simple derivation
 
@@ -110,12 +110,6 @@ $$
 $$
 
 where $\nabla_h$ is the del operator in the horizontal direction only: $\nabla_h = \frac{\partial}{\partial x} + \frac{\partial}{\partial y}$.
-
-
-
-
-
-
 
 
 
