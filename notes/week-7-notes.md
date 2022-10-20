@@ -61,6 +61,57 @@ $$
 $$
 
 
+## Mass balance equation
+We derived two different version of the depth integrated mass balance equation. The first derivation was relatively simple and ignored things like basal melting and lateral variation in the thickness $H$. The second was more complete, but relies on some calculus that is no that intuitive (Leibniz's integration rule).
+
+### Simple derivation
+
+The volume of the column of ice in the diagram below is $V= \delta x \delta y H$, where $H$ is the ice sheet thickness. The rate of change of the volume is 
+
+$$
+\dot{H}\delta x \delta y = \text{rate of mass in} - \text{rate of mass out}.
+$$
+
+![ice_column_mass_balance](https://github.com/ldeo-glaciology/ice-sheet-seminar-2022/blob/29fca4498ff512dc556ccdef2b03ccdd9195495f/images/ice_column_mass_balance.jpg)
+
+Mass fluxes are the accumulation at the upper surface and the two ice flow fluxes labelled $q_x$ and $q_y$ in the diagram. The flux from accumulation is $a\delta x \delta y$, where $a$ is the net rate of snow fall expressed in units of distance per time, assuming the snow fall is instantaneously compacted to the density of ice. This is called the ice-equivalent accumulation rate. It is commonly used in ice-sheet modelling. 
+
+The fluxes $q_x$ and $q_y$ are depth-integrated ice fluxes. They are defined as
+
+$$
+q_x = \int^H_0 u(z) dz;\quad q_y = \int^H_0 v(z) dz.
+$$
+
+They are the depth-integrated fluxes per unit width in the across flow direction. They have units of area per time (not volume per time, like you would assume a flux would have). (Additionally, you can treat them as the scalar component of a two-dimensional vector field $\underline{q}  = (q_x, q_y)$.) The total ice-flow flux into the column is therefore $q_x\delta y + q_y \delta x$.
+
+Using the approach we have used several times before, the ice-flow fluxes out of the column on the opposite faces are $\delta y(q_x+ \delta x \frac{\partial q_x}{\partial x})$ and $\delta x(q_y+ \delta y \frac{\partial q_y}{\partial y})$ .
+
+Bringing all these fluxes together we get
+
+$$
+\dot{H}\delta x \delta y = a\delta x \delta y + q_x\delta y + q_y \delta x - \delta y\left(q_x+ \delta x \frac{\partial q_x}{\partial x}\right) - \delta x\left(q_y+ \delta y \frac{\partial q_y}{\partial y}\right)
+$$
+
+The $q_y \delta x$ and $q_x\delta y$ cancel leaving
+
+$$
+\dot{H}\delta x \delta y = a\delta x \delta y - \delta y\delta x \frac{\partial q_x}{\partial x} - \delta x \delta y \frac{\partial q_y}{\partial y}
+$$
+
+Finally,  $\delta y \delta x$ cancels leaving
+$$
+\dot{H} = a -  \frac{\partial q_x}{\partial x} -  \frac{\partial q_y}{\partial y}.
+$$
+
+This can be represented by 
+
+$$
+\dot{H} = a -  \nabla_h\cdot\underline{q}, 
+$$
+
+where $\nabla_h$ is the del operator in the horizontal direction only: $\nabla_h = \frac{\partial}{\partial x} + \frac{\partial}{\partial y}$.
+
+
 
 
 
