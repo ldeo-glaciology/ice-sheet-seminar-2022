@@ -16,7 +16,7 @@ $$
 \epsilon_{xy} = \frac{1}{2}\left(\theta_1 + \theta_2\right).
 $$
 
-We assume that \underline{u} = 0 at the bottom left corner of the element. From the geometry of the system, i.e. using 'tan = opposite of adjacent', 
+We assume that $\underline{u} = 0$ at the bottom left corner of the element. From the geometry of the system, i.e. using 'tan = opposite of adjacent', 
 
 $$
 \tan(\theta_1) = \frac{\frac{\partial v}{\partial x}\delta x \delta t}{\delta x}.
@@ -99,6 +99,7 @@ $$
 $$
 
 Finally,  $\delta y \delta x$ cancels leaving
+
 $$
 \dot{H} = a -  \frac{\partial q_x}{\partial x} -  \frac{\partial q_y}{\partial y}.
 $$
