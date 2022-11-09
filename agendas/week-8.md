@@ -8,5 +8,6 @@
 
 ## Deviatoric stress
 
+## Second invariant of stress tensor for us in Glen's flow law
 
 ## Shallow ice approximation from Stokes eqns.
