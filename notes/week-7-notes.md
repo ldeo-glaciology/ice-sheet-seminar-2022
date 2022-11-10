@@ -124,11 +124,13 @@ $$
 $$
 
 and
+
 $$
 \nabla\cdot\underline{u} = \frac{\partial u}{\partial x} + \frac{\partial w}{\partial w}=0,
 $$
 
 where $b$ is the elevation of the base of the ice sheet and $s$ is the elevation of the ice surface. Rearranging gives 
+
 $$
 \frac{\partial w}{\partial z} = - \frac{\partial u}{\partial x}.
 $$
