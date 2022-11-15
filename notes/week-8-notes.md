@@ -60,8 +60,8 @@ In general, positive horizontal shear stress involves the right side of any inte
 On the right face the force is 
 
 $$
-\left(\tau_{xz}+\frac{\partial\tau_{xz}}{\partial x}\delta x\right)\delta z \delta y.
-$$.
+\left(\tau_{xz}+\frac{\partial\tau_{xz}}{\partial x}\delta x\right)\delta z \delta y
+$$
 
 ### The $y$ faces
 Applying the same approach to the $y$ faces gives
@@ -88,8 +88,8 @@ $$
 
 which simplifies to:
 
-$$
-0 = -\rho g + \frac{\partial \sigma_{zz}}{\partial z}+\frac{\partial \tau_{yz}}{\partial y}+\frac{\partial \tau_{xz}}{\partial x}$$
+$$0 = -\rho g + \frac{\partial \sigma_{zz}}{\partial z}+\frac{\partial \tau_{yz}}{\partial y}+\frac{\partial \tau_{xz}}{\partial x}$$
+
 Performing a similar analysis in the $x$- and $y$-directions yields:
 
 $$
@@ -117,7 +117,7 @@ Note that only the normal stresses $\sigma_{ij}$ differ between $\underline{\und
 
 $\sigma_m$ is the component of the stress that does not vary with direction (i.e. its isotropic). It tries to change the volume of our material. Removing it from the total stress $\underline{\underline{\sigma}}$ leaves only the component of stress that does vary with direction, $\underline{\underline{\tau}}$, which tries to change the shape of our material.
 
-$\underline{\underline{\tau}}$ is particularly useful for glaciology because we can often assume that ice is incompressible, so to a first approximation, $\sigma_m$ does not effect flow, whereas $\underline{\underline{\tau}}$ does. It is $\underline{\underline{\tau}}$ which appears in ice flow laws.  
+$\underline{\underline{\tau}}$ is particularly useful for glaciology because we can often assume that ice is incompressible, so to a first approximation, $\sigma_m$ does not affect flow, whereas $\underline{\underline{\tau}}$ does. It is $\underline{\underline{\tau}}$ which appears in ice flow laws.  
 
 ## Glen's flow law
 Glen's flow law is the most common flow law used to describe the viscous flow of ice in glaciology. So far we have written is as $\dot{\epsilon} = A\tau^n$, without specifying which stress $\tau$ and strain rate $\dot{\epsilon}$ are involved. A more complete formulation is:
