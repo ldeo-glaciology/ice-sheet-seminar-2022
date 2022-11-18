@@ -1,4 +1,4 @@
-# Agenda, week 9
+# Week 9 Notes
 
 ## Shallow ice approximation 
 
@@ -26,7 +26,7 @@ $$
 
 (This is the volume of ice flowing horizontally past a location per unit time, per unit width across flow.)
 
-The depth integral in the expression above is a hint that this is a depth-integrated ice-flow model, meaning that the final model will consider the stresses, fluxes, and velocities in a depth integrated/averaged sense, which does not resolve variations in these properties with depth.(Although some of the equations that we see along the way can be used to compute some of these as functions of $z$.)
+The depth integral in the expression above is a hint that this is a depth-integrated ice-flow model, meaning that the final model will consider the stresses, fluxes, and velocities in a depth integrated/averaged sense, which does not resolve variations in these properties with depth. (Although some of the equations that we see along the way can be used to compute some of these as functions of $z$.)
 
 Note that in the stress balance equations above we have three equations and nine unknowns - we cannot solve this system of equations without more information. In the a 'full-stokes' ice-sheet model this information comes from the rheology. In our case we will make simplifications until we have two equations and two unknowns. 
 
@@ -61,7 +61,8 @@ $$
 \sigma_{zz} = \tau_{zz} + \sigma_{m}
 $$
 
-and therefore 
+and therefore
+
 $$
 \frac{\partial \sigma_{xx}}{\partial x} = \frac{\partial \tau_{xx}}{\partial x} + \frac{\partial \sigma_{m}}{\partial x}
 $$
@@ -82,7 +83,7 @@ $$
 
 
 ## Drop stress terms - the 'Shallow Ice Approximation'
-Next, we make *part of* what is called the 'Shallow Ice Approximation'. Based on the assumption that the ice is much wider than it is tall (i.e. the aspect ratio is very large), we neglect the variation of stresses in the $x$ direction. We also assume the vertical stress is hydrostatic (i.e. $\frac{\partial \tau_{zz}}{\partial z} =0$).
+Next, we make *part of* what is called the 'Shallow Ice Approximation.' Based on the assumption that the ice is much wider than it is tall (i.e. the aspect ratio is very large), we neglect the variation of stresses in the $x$ direction. We also assume the vertical stress is hydrostatic (i.e. $\frac{\partial \tau_{zz}}{\partial z} =0$).
 
 
 These are serious simplifications. They mean that our model will not be applicable to places where the bed slope varies rapidly, places where the bed is very slippery, at grounding lines, in ice shelves, or at ice divides. In all these cases, the terms we are about to neglect are likely to be very important and should not be ignored. We would need to retain some (or all) of these terms in the stress balance to have a hope of realistically simulating ice flow in those places. Nonetheless, neglecting them here can help us to understand the basics of ice sheet flow and we can come back to more sophisticated models later. 
@@ -97,7 +98,7 @@ $$
 \frac{\partial \sigma_{m}}{\partial z} = \rho g
 $$
 
-We started with three equations and nine unknowns. The simplifications above have reduced the model to two equations and two unknowns. Therefore, as long as we have boundary conditions, we can solve this system of equations to get the stresses, then use the result with the flow law to get ice flux. 
+We started with three equations and nine unknowns. The simplifications above have reduced the model to two equations and two unknowns. Therefore, as long as we have boundary conditions, we can solve this system of equations to get the stresses, then use the result with Glen's flow law to get ice flux. 
 
 ## Integrate the $z$ equation vertically 
 Our first challenge is to combine these equations to get an expression for $\tau_{zx}$. The first step is to integrate the $z$-direction stress balance equation vertically. Integrating both sides gives
@@ -135,7 +136,7 @@ Noting that $\frac{\partial H}{\partial z}$ is usually negative, this expression
 To get an expression for $\tau_{zx}$, we integrate the expression above vertically: 
 
 $$
-\int^{\tau_{zx}}_0 \tau_{zx} dz = \rho g \frac{\partial H}{\partial z} \int^z_H  dz
+\int^0_{\tau_{zx}} \tau_{zx} dz = \rho g \frac{\partial H}{\partial z} \int^H_z  dz
 $$
 
 where we have imposed the boundary condition $\tau_{zx}(z=H) = 0$, i.e.  there is no shear stress exerted by the air on the ice sheet at the surface. 
@@ -319,4 +320,5 @@ $$
 \tau_{zx} = -\rho g \alpha  (z-H).
 $$
 
-It is the rheology of the ice that determines how this linear increase in $\tau_{zx}$ with depth translates into shear strain. Therefore, it makes sense that in more non-linear ice the deformation is concentrated where the shear stress is highest -- the bottom -- and the vertical gradient of $u$ is highest there, which is exactly what  $1- \zeta^{n+1} $ does for higher $n$. 
+It is the rheology of the ice that determines how this linear increase in $\tau_{zx}$ with depth translates into shear strain. Therefore, it makes sense that in more non-linear ice the deformation is concentrated where the shear stress is highest -- the bottom -- and the vertical gradient of $u$ is highest there, which is exactly what $1- \zeta^{n+1} $
+does for higher $n$. 
