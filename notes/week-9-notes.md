@@ -144,14 +144,10 @@ where we have imposed the boundary condition $\tau_{zx}(z=H) = 0$, i.e.  there i
 Evaluating this integral gives
 
 $$
-\tau_{zx} = -\rho g \alpha  (z-H),
+\tau_{zx} = \rho g \alpha  (H-z),
 $$
 
-where $\alpha = -\frac{\partial H}{\partial z}$, or absorbing the negative sign into the brackets
-
-$$
-\tau_{zx} = \rho g \alpha  (H-z).
-$$
+where $\alpha = -\frac{\partial H}{\partial z}$.
 
 This is a solution to the stress balance equations for the vertical shear stress. It says that vertical shear stress is zero at the surface and increases linearly with depth at a rate proportional to the density, the strength of gravity, and the surface slope. To determine how this corresponds to deformation and ultimately the ice flux we need to bring in rheology.  
 
