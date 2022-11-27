@@ -121,22 +121,22 @@ i.e. as expected, the mean normal stress is negative (compressive) and increasin
 Next we differentiate this expression horizontally to get
 
 $$
-\frac{\partial \sigma_{m}}{\partial x} =- \rho g \frac{\partial H}{\partial z}
+\frac{\partial \sigma_{m}}{\partial x} =- \rho g \frac{\partial H}{\partial x}
 $$
 
 Substituting this into the $x$-direction stress balance equation shows
 
 $$
-\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial z}
+\frac{\partial \tau_{zx}}{\partial z} = \rho g \frac{\partial H}{\partial x}
 $$
 
-Noting that $\frac{\partial H}{\partial z}$ is usually negative, this expression suggests that the vertical shear stress $\tau_{zx}$ decreases with $z$. 
+Noting that $\frac{\partial H}{\partial x}$ is usually negative, this expression suggests that the vertical shear stress $\tau_{zx}$ decreases with $z$. 
 
 ## Integrate vertically 
 To get an expression for $\tau_{zx}$, we integrate the expression above vertically: 
 
 $$
-\int^0_{\tau_{zx}} \tau_{zx} dz = \rho g \frac{\partial H}{\partial z} \int^H_z  dz
+\int^0_{\tau_{zx}} \tau_{zx} dz = \rho g \frac{\partial H}{\partial x} \int^H_z  dz
 $$
 
 where we have imposed the boundary condition $\tau_{zx}(z=H) = 0$, i.e.  there is no shear stress exerted by the air on the ice sheet at the surface. 
@@ -147,7 +147,7 @@ $$
 \tau_{zx} = \rho g \alpha  (H-z),
 $$
 
-where $\alpha = -\frac{\partial H}{\partial z}$.
+where $\alpha = -\frac{\partial H}{\partial x}$.
 
 This is a solution to the stress balance equations for the vertical shear stress. It says that vertical shear stress is zero at the surface and increases linearly with depth at a rate proportional to the density, the strength of gravity, and the surface slope. To determine how this corresponds to deformation and ultimately the ice flux we need to bring in rheology.  
 
