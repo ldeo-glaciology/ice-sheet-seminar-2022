@@ -1,6 +1,0 @@
-name: simple_env_for_binder
-
-dependencies:
-  - python
-  - numpy
-  - matplotlib
