@@ -221,7 +221,7 @@ $$
 \dot{H} = a-m - \frac{\partial q}{\partial x},
 $$
 
-which in two hrizontal dimensions is 
+which in two horizontal dimensions is 
 
 $$
 \dot{H} = a -  m - \nabla_h\cdot\underline{q}. 
